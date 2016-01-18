@@ -70,11 +70,14 @@ export default class {
       bg = p.color(169,255,200, 1.999);
       bpm = music.getActualBPM();
       let x = getGif().then(function(result){
-        console.log(result)
-        $('.x1').append('<x-gif class="xgif" src="'+gifCollection[Math.round(p.random(0, gifCollection.length-1))]+'" snap ping-pong snap bpm="'+bpm+'"></x-gif>');
-        $('.x2').append('<x-gif class="xgif" src="'+gifCollection[Math.round(p.random(0, gifCollection.length-1))]+'" snap ping-pong bpm="'+bpm+'"></x-gif>');
-        $('.x3').append('<x-gif class="xgif" src="'+gifCollection[Math.round(p.random(0, gifCollection.length-1))]+'" snap ping-pong snap bpm="'+bpm+'"></x-gif>');
-        $('.x4').append('<x-gif class="xgif" src="'+gifCollection[Math.round(p.random(0, gifCollection.length-1))]+'" snap ping-pong bpm="'+bpm+'"></x-gif>');
+        $('.x1').append('<x-gif class="xgif" src="'+gifCollection[ gifCollection.length-2]+'" snap ping-pong bpm="'+bpm+'"></x-gif>');
+        $('.x2').append('<x-gif class="xgif" src="'+gifCollection[ gifCollection.length-2]+'" snap ping-pong bpm="'+bpm+'"></x-gif>');
+        $('.x3').append('<x-gif class="xgif" src="'+gifCollection[ gifCollection.length-2]+'" snap ping-pong bpm="'+bpm+'"></x-gif>');
+        $('.x4').append('<x-gif class="xgif" src="'+gifCollection[ gifCollection.length-2]+'" snap ping-pong bpm="'+bpm+'"></x-gif>');
+
+        // $('.x2').append('<x-gif class="xgif" src="'+gifCollection[Math.round(p.random(0, gifCollection.length-1))]+'" snap ping-pong bpm="'+bpm+'"></x-gif>');
+        // $('.x3').append('<x-gif class="xgif" src="'+gifCollection[Math.round(p.random(0, gifCollection.length-1))]+'" snap ping-pong snap bpm="'+bpm+'"></x-gif>');
+        // $('.x4').append('<x-gif class="xgif" src="'+gifCollection[Math.round(p.random(0, gifCollection.length-1))]+'" snap ping-pong bpm="'+bpm+'"></x-gif>');
 
       })
       events.registerEvent('onBeat', function () {
@@ -102,36 +105,36 @@ export default class {
         //   $('.xgif').attr('src', result.image_url );
         // })
         // $('.xgif').attr('src', gifCollection[Math.round(p.random(0, gifCollection.length-1))] );
-        $('.x1 .xgif').replaceWith('<x-gif class="xgif" src="'+ gifCollection[Math.round(p.random(0, gifCollection.length-1))]+'" ping-pong snap bpm="'+bpm+'"></x-gif>');
-        $('.x2 .xgif').replaceWith('<x-gif class="xgif" src="'+ gifCollection[Math.round(p.random(0, gifCollection.length-1))]+'" ping-pong snap bpm="'+bpm+'"></x-gif>');
-        $('.x3 .xgif').replaceWith('<x-gif class="xgif" src="'+ gifCollection[Math.round(p.random(0, gifCollection.length-1))]+'" ping-pong snap bpm="'+bpm+'"></x-gif>');
-        $('.x4 .xgif').replaceWith('<x-gif class="xgif" src="'+ gifCollection[Math.round(p.random(0, gifCollection.length-1))]+'" ping-pong snap bpm="'+bpm+'"></x-gif>');
+        // $('.x1 .xgif').replaceWith('<x-gif class="xgif" src="'+ gifCollection[Math.round(p.random(0, gifCollection.length-1))]+'" ping-pong snap bpm="'+smoothedBPM+'"></x-gif>');
+        // $('.x2 .xgif').replaceWith('<x-gif class="xgif" src="'+ gifCollection[Math.round(p.random(0, gifCollection.length-1))]+'" ping-pong snap bpm="'+bpm+'"></x-gif>');
+        // $('.x3 .xgif').replaceWith('<x-gif class="xgif" src="'+ gifCollection[Math.round(p.random(0, gifCollection.length-1))]+'" ping-pong snap bpm="'+bpm+'"></x-gif>');
+        // $('.x4 .xgif').replaceWith('<x-gif class="xgif" src="'+ gifCollection[Math.round(p.random(0, gifCollection.length-1))]+'" ping-pong snap bpm="'+bpm+'"></x-gif>');
 
-        if (p.random(0, 100) > 50) {
-          if ($('.x1').css('visibility') === 'visible') {
-            $('.x1').css('visibility', 'hidden') ;
-          }else{
-            $('.x1').css('visibility', 'visible') ;
-          }
-          if ($('.x4').css('visibility') === 'visible') {
-            $('.x4').css('visibility', 'hidden') ;
-          }else{
-            $('.x4').css('visibility', 'visible') ;
-          }
-
-        } else {
-          if ($('.x2').css('visibility') === 'visible') {
-            $('.x2').css('visibility', 'hidden') ;
-          }else{
-            $('.x2').css('visibility', 'visible') ;
-          }
-          if ($('.x3').css('visibility') === 'visible') {
-            $('.x3').css('visibility', 'hidden') ;
-          }else{
-            $('.x3').css('visibility', 'visible') ;
-          }
-
-        }
+        // if (p.random(0, 100) > 50) {
+        //   if ($('.x1').css('visibility') === 'visible') {
+        //     $('.x1').css('visibility', 'hidden') ;
+        //   }else{
+        //     $('.x1').css('visibility', 'visible') ;
+        //   }
+        //   if ($('.x4').css('visibility') === 'visible') {
+        //     $('.x4').css('visibility', 'hidden') ;
+        //   }else{
+        //     $('.x4').css('visibility', 'visible') ;
+        //   }
+        //
+        // } else {
+        //   if ($('.x2').css('visibility') === 'visible') {
+        //     $('.x2').css('visibility', 'hidden') ;
+        //   }else{
+        //     $('.x2').css('visibility', 'visible') ;
+        //   }
+        //   if ($('.x3').css('visibility') === 'visible') {
+        //     $('.x3').css('visibility', 'hidden') ;
+        //   }else{
+        //     $('.x3').css('visibility', 'visible') ;
+        //   }
+        //
+        // }
 
       }
 
