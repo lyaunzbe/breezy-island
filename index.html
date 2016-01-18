@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <title>breezy-island</title>
+
+  <script>
+  if ('registerElement' in document
+    && 'createShadowRoot' in HTMLElement.prototype
+    && 'import' in document.createElement('link')
+    && 'content' in document.createElement('template')) {
+    // We're using a browser with native WC support!
+  } else {
+    document.write('<script src="https:\/\/cdnjs.cloudflare.com/ajax/libs/polymer/0.3.4/platform.js"><\/script>')
+  }
+  </script>
+  <link rel="import" href="x-gif.html">
+  <style media="screen">
+    #defaultCanvas0{
+      display: block;
+      position: absolute;
+      top:0px;
+
+    }
+    x-gif.xgif {
+      width: 100%;
+      margin-top:30px;
+    }
+    .x1 {
+      display: inline-block;
+      float:left;
+      width: 50%;
+      height:50%;
+    }
+    .x2 {
+      display: inline-block;
+      width: 50%;
+      height:50%;
+      float:right;
+    }
+    .x3 {
+      display: inline-block;
+      width: 50%;
+      height:50%;
+      float:left;
+    }
+    .x4 {
+      display: inline-block;
+      width: 50%;
+      height:50%;
+      float:right;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="audioDebug" style="display:none;">
+
+  </canvas>
+  <div class="x1">
+
+  </div>
+  <div class="x2">
+
+  </div>
+  <br>  <br>
+  <div class="x3">
+
+  </div>
+  <div class="x4">
+
+  </div>
+  <script src="bundle.js"></script>
+</body>
+</html>
