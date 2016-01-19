@@ -96,10 +96,18 @@ export default function(opt, canvasTexture) {
     var toolbeltShaders = new Toolbelt();
     var toolbeltShadersB = new Toolbelt();
     fbShaders = [
-        toolbeltShaders.move,
-        toolbeltShaders.colorize,
+        // toolbeltShaders.move,
+        // toolbeltShaders.colorize,
+        // toolbeltShaders.diff,
+        // toolbeltShadersB.warp,
+        // toolbeltShadersB.blur,
+        // toolbeltShaders.emboss
+
+
+        toolbeltShaders.warp,
+        toolbeltShaders.blur,
         toolbeltShaders.diff,
-        toolbeltShadersB.warp,
+        toolbeltShadersB.colorize,
         toolbeltShadersB.blur,
         toolbeltShaders.emboss
     ];
@@ -141,7 +149,8 @@ export default function(opt, canvasTexture) {
     //
     // }
     materialRTT.uniforms.time.value = time;
-    smoothedLevel += (window.music.level() - smoothedLevel) *0.075;
+    smoothedLevel += (window.music.level() - smoothedLevel) *0.1;
+    console.log(smoothedLevel);
     materialRTT.uniforms.level.value = smoothedLevel;
     fbMaterial.fboCollection.forEach(function (fbo) {
       fbo.mat.uniforms.time.value = time;

@@ -108,8 +108,11 @@ let Music = function() {
 			// 	bpm: 118.0},
 			{ url:'https://soundcloud.com/flamingosis/flamingosis-x-macross-82-99-now-or-never',
 				bpm: 150.0},
-				{ url:'https://soundcloud.com/capecoral/morning-fit',
+			{ url:'https://soundcloud.com/capecoral/morning-fit',
+				bpm: 150.0},
+			{ url:'https://soundcloud.com/kill-me-baby-music/many-miles-for-you',
 					bpm: 150.0}
+
 		];
 		let chosenSong = songs[getRandomInt(0, songs.length-1)];
 		actualBPM = chosenSong;

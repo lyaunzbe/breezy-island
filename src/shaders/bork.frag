@@ -6,7 +6,7 @@ vec4 makeWave(vec2 uv, vec2 o, vec2 s, vec2 v, vec4 c1, vec4 c2, vec4 ch)
 {
     uv *= s;
     uv += o;
-    float f = cos(uv.x+time * v.x * level) - uv.y - sin(time*v.y * level);
+    float f = (cos(uv.x+time * v.x) * (level*5.0) - uv.y - sin(time*v.y *level))*level*0.5;
 	return mix(ch, f>10. ? c2 : f>.0 ? mix(c1, c2, f*.1) : vec4(0.), smoothstep(.0,.02*s.y, abs(f)));
 }
 

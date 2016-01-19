@@ -70,7 +70,7 @@ export default class {
       bg = p.color(169,255,200, 1.999);
       bpm = music.getActualBPM();
       let x = getGif().then(function(result){
-        $('.x1').append('<x-gif class="xgif" src="'+gifCollection[ gifCollection.length-2]+'" snap ping-pong bpm="'+bpm+'"></x-gif>');
+        $('.x1').append('<x-gif class="xgif" src="'+gifCollection[ gifCollection.length-2]+'" snap  ping-pong bpm="'+bpm+'"></x-gif>');
         $('.x2').append('<x-gif class="xgif" src="'+gifCollection[ gifCollection.length-2]+'" snap ping-pong bpm="'+bpm+'"></x-gif>');
         $('.x3').append('<x-gif class="xgif" src="'+gifCollection[ gifCollection.length-2]+'" snap ping-pong bpm="'+bpm+'"></x-gif>');
         $('.x4').append('<x-gif class="xgif" src="'+gifCollection[ gifCollection.length-2]+'" snap ping-pong bpm="'+bpm+'"></x-gif>');
@@ -105,10 +105,7 @@ export default class {
         //   $('.xgif').attr('src', result.image_url );
         // })
         // $('.xgif').attr('src', gifCollection[Math.round(p.random(0, gifCollection.length-1))] );
-        // $('.x1 .xgif').replaceWith('<x-gif class="xgif" src="'+ gifCollection[Math.round(p.random(0, gifCollection.length-1))]+'" ping-pong snap bpm="'+smoothedBPM+'"></x-gif>');
-        // $('.x2 .xgif').replaceWith('<x-gif class="xgif" src="'+ gifCollection[Math.round(p.random(0, gifCollection.length-1))]+'" ping-pong snap bpm="'+bpm+'"></x-gif>');
-        // $('.x3 .xgif').replaceWith('<x-gif class="xgif" src="'+ gifCollection[Math.round(p.random(0, gifCollection.length-1))]+'" ping-pong snap bpm="'+bpm+'"></x-gif>');
-        // $('.x4 .xgif').replaceWith('<x-gif class="xgif" src="'+ gifCollection[Math.round(p.random(0, gifCollection.length-1))]+'" ping-pong snap bpm="'+bpm+'"></x-gif>');
+
 
         // if (p.random(0, 100) > 50) {
         //   if ($('.x1').css('visibility') === 'visible') {
@@ -141,9 +138,25 @@ export default class {
       if(music.getBPM() ){
         beatHit = false;
         smoothedBPM += (Math.round(music.getBPM()) - smoothedBPM) *0.1;
+        if (p.frameCount % 60.0 === 0){
+          $('.x1 .xgif').replaceWith('<x-gif class="xgif" src="'+ gifCollection[ gifCollection.length-2]+'" ping-pong snap bpm="'+smoothedBPM+'"></x-gif>');
+          $('.x2 .xgif').replaceWith('<x-gif class="xgif" src="'+ gifCollection[ gifCollection.length-2]+'" ping-pong snap bpm="'+smoothedBPM+'"></x-gif>');
+          $('.x3 .xgif').replaceWith('<x-gif class="xgif" src="'+ gifCollection[ gifCollection.length-2]+'" ping-pong snap bpm="'+smoothedBPM+'"></x-gif>');
+          $('.x4 .xgif').replaceWith('<x-gif class="xgif" src="'+ gifCollection[ gifCollection.length-2]+'" ping-pong snap bpm="'+smoothedBPM+'"></x-gif>');
+
+
+        }
 
       }
+      $('.x1').css('top', 65 + (Math.sin(p.frameCount/150.0)*10) + "%");
+      $('.x2').css('top', 65 + (Math.sin(p.frameCount/150.0)*-10)+ "%");
+      $('.x3').css('top', 65 + (Math.sin(p.frameCount/150.0)*10)+ "%");
+      $('.x4').css('top', 65 + (Math.sin(p.frameCount/150.0)*-10)+ "%");
 
+      $('.x1').css('left', 15 + (Math.sin(p.frameCount/150.0)*5) + "%");
+      $('.x2').css('left', 35 + (Math.sin(p.frameCount/150.0)*-5)+ "%");
+      $('.x3').css('left', 55 + (Math.sin(p.frameCount/150.0)*5)+ "%");
+      $('.x4').css('left', 75 + (Math.sin(p.frameCount/150.0)*-5)+ "%");
 
       // $('.xgif').attr('bpm', Math.round(smoothedBPM));
 
